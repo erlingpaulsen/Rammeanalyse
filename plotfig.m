@@ -10,6 +10,12 @@ function  plotfig( npunkt, punkt, elem, nelem )
         m(i, 3) = endx;
         m(i, 4) = endy;
     end
+    xmin = min(punkt(:,1));
+    xmax = max(punkt(:,1));
+    ymin = min(punkt(:,2));
+    ymax = max(punkt(:,2));
+    dx = xmax - xmin;
+    dy = ymax - ymin;
     
     x = [m(:,1) m(:,3)];
     y = [m(:,2) m(:,4)];
@@ -21,24 +27,24 @@ function  plotfig( npunkt, punkt, elem, nelem )
         else
             plot(punkt(j,1),punkt(j,2), 'x', 'Color', 'k')
         end
-        text(punkt(j,1)+1, punkt(j,2)+2, num2str(j), 'Color', 'b');
+        text(punkt(j,1)+(dx/20), punkt(j,2)+(dy/11), num2str(j), 'Color', 'b'); %+ceil(dx/15)
     end
     
     for k = 1:nelem
         if ((m(k,1)+m(k,3))/2 == m(k,1))
-            text(((m(k,1)+m(k,3))/2)-3, ((m(k,2)+m(k,4))/2), num2str(k), 'Color', 'r');
+            text(((m(k,1)+m(k,3))/2)-(dx/13), ((m(k,2)+m(k,4))/2), num2str(k), 'Color', 'r');
         else
-            text(((m(k,1)+m(k,3))/2), ((m(k,2)+m(k,4))/2)-2, num2str(k), 'Color', 'r');
+            text(((m(k,1)+m(k,3))/2), ((m(k,2)+m(k,4))/2)-(dy/15), num2str(k), 'Color', 'r');
         end
     end
     
-    xlim([(min(punkt(:,1))-10) (max(punkt(:,1))+10)]);
-    ylim([(min(punkt(:,2))-10) (max(punkt(:,2))+25)]);
+    xlim([xmin-((dx/4)) xmax+((dx/4))]);
+    ylim([ymin-((dy/4)) ymax+((dy/2)+1)]);
     title('Nummerering av knutepunkt og elementer');
-    text(((max(punkt(:,1))-20)), ((max(punkt(:,2))+21)), 'Blå: knutepunktnr.');
-    text(((max(punkt(:,1))-20)), ((max(punkt(:,2))+17)), 'Røde: elementnr.');
-    text(((max(punkt(:,1))-20)), ((max(punkt(:,2))+13)), 'x: fastholdt mot rotasjon');
-    text(((max(punkt(:,1))-20)), ((max(punkt(:,2))+9)), 'o: fri rotasjon');
+    text(xmin, ymax+((dy/2.5)), 'Blå: knutepunktnr.');
+    text(xmax-((dx/2)), ymax+((dy/2.5)), 'x: fastholdt mot rotasjon');
+    text(xmin, ymax+((dy/3.5)), 'Røde: elementnr.');
+    text(xmax-((dx/2)), ymax+((dy/3.5)), 'o: fri rotasjon');
     grid off;
 
 end
