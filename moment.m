@@ -1,4 +1,4 @@
-function fim = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder)
+function fim = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder, nmom, mom)
 
 % moment regner ut fastinnspenningsmomentene
 % npunkt: Antall punkter
@@ -17,7 +17,8 @@ function fim = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder)
         
         ende1 = last(i, 2);
         ende2 = last(i, 3);
-        el = elementlengder(elementnr(ende1, ende2, elem, nelem));
+        en = elementnr(ende1, ende2, elem, nelem);
+        el = elementlengder(en);
         lasttype = last(i, 1);
         lastint1 = last(i, 4);
         lastavstand = last(i, 6);
@@ -40,8 +41,13 @@ function fim = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder)
         
         % Finner tilhørende elementnummer til knutepunktene og setter inn
         % fastinnspenningsmomentet ved lokal ende 1 og 2
-        fim(2*elementnr(ende1, ende2, elem, nelem)-1) = fim(2*elementnr(ende1, ende2, elem, nelem)-1) + temp1;
-        fim(2*elementnr(ende1, ende2, elem, nelem)) = fim(2*elementnr(ende1, ende2, elem, nelem)) + temp2;
+        if elem(en, 1) == ende1
+            fim(2*en-1) = fim(2*en-1) + temp1;
+            fim(2*en) = fim(2*en) + temp2;
+        else
+            fim(2*en-1) = fim(2*en-1) + temp2;
+            fim(2*en) = fim(2*en) + temp1;
+        end
     end
 end
 
