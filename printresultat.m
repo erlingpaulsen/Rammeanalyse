@@ -68,7 +68,7 @@ function printresultat(npunkt, punkt, nelem, elem, elementlengder, rot, endemome
     gbs = boyespenning(pos, 1);
     fy = 350;
     fprintf('Global maksimal bøyespenning (element %i): %f [MPa]\n', pos, gbs/(10^6));
-    fprintf('Prosent av flytspenning (350 MPa): %f\n', (gbs/(10^6))/fy);
+    fprintf('Prosent av flytspenning (350 MPa): %f\n', ((gbs/(10^6))/fy)*100);
     
     fclose(filid);
 
