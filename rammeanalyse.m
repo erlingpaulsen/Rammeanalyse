@@ -41,13 +41,15 @@ midtmoment = midtM(nelem, elem, elementlengder, nlast, last, endemoment);
 % -----Regner ut max bøyespenning for hvert element-----
 boyespenning = boyespenning(I, maxY, endemoment, midtmoment, nelem);
 
+% -----Regner ut skjærkreftene for hvert element-----
+skjar = skjarkraft(last, nlast, endemoment, nelem, elem, elementlengder);
+
 % ----Skriver ut hva rotasjonen ble i de forskjellige nodene-------
 %disp('Rotasjonane i de ulike punkta:')
 %rot
 
 % -----Skriver ut resultatene til et txt-dokument kalt 'resultat.txt'-----
-printresultat(npunkt, punkt, nelem, elem, nlast, last, elementlengder,...
-    fim, b, elementstivhet, maxY, K, Kn, Bn, rot, endemoment, midtmoment, boyespenning);
+printresultat(npunkt, punkt, nelem, elem, elementlengder, rot, endemoment, midtmoment, boyespenning, skjar);
 
 
 % -----Skriver ut hva momentene ble for de forskjellige elementene-------

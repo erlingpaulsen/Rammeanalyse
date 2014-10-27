@@ -1,7 +1,8 @@
-function printresultat(npunkt, punkt, nelem, elem, nlast, last, elementlengder,...
-    fim, b, elementstivhet, maxY, K, Kn, Bn, rot, endemoment, midtmoment, boyespenning)
+function printresultat(npunkt, punkt, nelem, elem, elementlengder, rot, endemoment, midtmoment, boyespenning, skjar)
 
     filid = fopen('resultat.txt', 'w');
+    
+    plotfig(npunkt, punkt, elem, nelem);
     
     fprintf(filid, '--Resultat av rammeanalyse--\n\n');
     fprintf(filid, 'Informasjon om konstruksjonen:\n');
@@ -13,6 +14,7 @@ function printresultat(npunkt, punkt, nelem, elem, nlast, last, elementlengder,.
         fprintf('Element %i:\n', i);
         fprintf('    -Lokal ende 1: %i\n', elem(i, 1));
         fprintf('    -Lokal ende 2: %i\n', elem(i, 2));
+        fprintf('    -Lengde: %d\n', elementlengder(i));
         
         m1 = endemoment(i, 1)/(10^3);
         m2 = endemoment(i, 2)/(10^3);
@@ -38,6 +40,8 @@ function printresultat(npunkt, punkt, nelem, elem, nlast, last, elementlengder,.
             fprintf('    -Moment ende 2: %f [kNm]\n', m2);
         end
         
+        fprintf('    -Skjærkraft ende 1: %f\n', skjar(i, 1));
+        fprintf('    -Skjærkraft ende 2: %f\n', skjar(i, 2));
         fprintf('    -Rotasjon ende 1: %f\n', rot(elem(i, 1)));
         fprintf('    -Rotasjon ende 2: %f\n', rot(elem(i, 2)));
         
@@ -63,6 +67,8 @@ function printresultat(npunkt, punkt, nelem, elem, nlast, last, elementlengder,.
     fy = 350;
     fprintf('Global maksimal bøyespenning (element %i): %f [MPa]\n', pos, gbs/(10^6));
     fprintf('Prosent av flytspenning (350 MPa): %f\n', (gbs/(10^6))/fy);
+    
+    fclose(filid);
 
 end
 
