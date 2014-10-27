@@ -1,8 +1,8 @@
 --Resultat av rammeanalyse--
 
 Informasjon om konstruksjonen:
-    -Antall knutepunkt: 5
-    -Antall elementer: 4
+    -Antall knutepunkt: 3
+    -Antall elementer: 2
 
 Informasjon om hvert bjelkeelement:
 
