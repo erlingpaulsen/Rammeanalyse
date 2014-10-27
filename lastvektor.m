@@ -24,8 +24,8 @@ function b = lastvektor(fim, npunkt, punkt, nelem, elem, nmom, mom)
     % knutepunkts fastinnspenningsmoment
     for i = 1:npunkt;
         for j = 1:nmom;
-            if (i == mom(1));
-                b(i) = b(i) + mom(2);
+            if (i == mom(j, 1));
+                b(i) = b(i) + mom(j, 2);
             end
         end
     end
