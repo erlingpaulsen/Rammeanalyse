@@ -19,6 +19,8 @@ function printresultat(npunkt, punkt, nelem, elem, elementlengder, rot, endemome
         m1 = endemoment(i, 1)/(10^3);
         m2 = endemoment(i, 2)/(10^3);
         m3 = midtmoment(i, 1)/(10^3);
+        s1 = skjar(i, 1)/(10^3);
+        s2 = skjar(i, 2)/(10^3);
         
         if midtmoment(i, 2) == -1
             lasttype = 'Ingen ytre last';
@@ -40,8 +42,8 @@ function printresultat(npunkt, punkt, nelem, elem, elementlengder, rot, endemome
             fprintf('    -Moment ende 2: %f [kNm]\n', m2);
         end
         
-        fprintf('    -Skjærkraft ende 1: %f\n', skjar(i, 1));
-        fprintf('    -Skjærkraft ende 2: %f\n', skjar(i, 2));
+        fprintf('    -Skjærkraft ende 1: %f [kN]\n', s1);
+        fprintf('    -Skjærkraft ende 2: %f [kN]\n', s2);
         fprintf('    -Rotasjon ende 1: %f\n', rot(elem(i, 1)));
         fprintf('    -Rotasjon ende 2: %f\n', rot(elem(i, 2)));
         
