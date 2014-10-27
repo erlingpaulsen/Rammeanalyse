@@ -1,4 +1,4 @@
-function fim = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder)
+function fim = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder, nmom, mom)
 
 % moment regner ut fastinnspenningsmomentene
 % npunkt: Antall punkter
@@ -49,5 +49,6 @@ function fim = moment(npunkt,punkt,nelem,elem,nlast,last,elementlengder)
             fim(2*en) = fim(2*en) + temp1;
         end
     end
+
 end
 
