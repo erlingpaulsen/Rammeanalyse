@@ -11,7 +11,7 @@ function b = lastvektor(fim, npunkt, punkt, nelem, elem, nmom, mom)
 
     b = zeros(npunkt, 1);
 
-    % Summerer fastinnspenningsmoment for begge lokale ender for hvert
+    % Summerer fastinnspenningsmoment med negativt fortegn for begge lokale ender for hvert
     % element 
     for i = 1:nelem;
     
@@ -29,9 +29,5 @@ function b = lastvektor(fim, npunkt, punkt, nelem, elem, nmom, mom)
             end
         end
     end
-    
-    % Snur fortegnet til lastvektoren
-    %b = b*-1;
-
 end
 
