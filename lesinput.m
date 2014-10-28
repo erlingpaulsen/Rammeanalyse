@@ -1,11 +1,11 @@
-function [npunkt, punkt, nelem, elem, nlast, last, nmom, mom]=lesinput()
+function [npunkt, punkt, autodim, nelem, elem, nlast, last, nmom, mom]=lesinput()
 
 
 %   %i = heltall (integer)  %f : desimaltall (flyt-tall)
 
 
 %Åpner inputfila
-filid = fopen('inputfig3.txt','r');
+filid = fopen('inputfig5.txt','r');
 
 
 %Leser antall knutepunkter
@@ -18,6 +18,11 @@ npunkt = fscanf(filid,'%i',[1 1]);
 % Grensebetingelse lagres i kolonne 3, fast innspent=1 og fri rotasjon=0
 punkt = fscanf(filid,'%f %f %i',[3 npunkt])';
 
+%Leser inn verdi for autodimensjonering
+%0: Leser inn manuelt innskrevne tverrsnittsmål
+%1: Velger autodimensjonering, til maksimal bøyespenning havner mellom
+%50 og 60 %
+autodim = fscanf(filid, '%i', [1 1]);
 
 %Leser antall elementer
 nelem = fscanf(filid,'%i',[1 1]);

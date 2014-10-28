@@ -3,7 +3,13 @@ clear all
 
 
 % -----Leser input-data-----
-[npunkt, punkt, nelem, elem, nlast, last, nmom, mom] = lesinput();
+[npunkt, punkt, autodim, nelem, elem, nlast, last, nmom, mom] = lesinput();
+
+
+if autodim == 1
+    rammeanalyse_autodim(npunkt, punkt, nelem, elem, nlast, last, nmom, mom);
+    return;
+end
 
 
 % -----Regner lengder til elementene-----
@@ -39,7 +45,7 @@ endemoment = endeM(nelem, elem, elementstivhet, rot, fim);
 midtmoment = midtM(nelem, elem, elementlengder, nlast, last, endemoment);
 
 % -----Regner ut max bøyespenning for hvert element-----
-boyespenning = boyespenning(I, maxY, endemoment, midtmoment, nelem);
+bs = boyespenning(I, maxY, endemoment, midtmoment, nelem);
 
 % -----Regner ut skjærkreftene for hvert element-----
 skjar = skjarkraft(last, nlast, endemoment, nelem, elem, elementlengder);
@@ -49,7 +55,7 @@ skjar = skjarkraft(last, nlast, endemoment, nelem, elem, elementlengder);
 %rot
 
 % -----Skriver ut resultatene til et txt-dokument kalt 'resultat.txt'-----
-printresultat(npunkt, punkt, nelem, elem, elementlengder, rot, endemoment, midtmoment, boyespenning, skjar);
+printresultat(npunkt, punkt, nelem, elem, elementlengder, rot, endemoment, midtmoment, bs, skjar);
 
 
 % -----Skriver ut hva momentene ble for de forskjellige elementene-------
