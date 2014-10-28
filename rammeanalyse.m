@@ -26,7 +26,7 @@ fim = moment(npunkt, punkt, nelem, elem, nlast, last,...
 % ------Setter opp lastvektor-------
 b = lastvektor(fim, npunkt, punkt, nelem, elem, nmom, mom);
 
-% ------Regner ut bøyestivheten (EI/L) til elementene-----
+% ------Regner ut boyestivheten (EI/L) til elementene-----
 [elementstivhet, maxY, I] = elementstivhet(nelem, elem,...
     elementlengder);
 
@@ -34,11 +34,11 @@ b = lastvektor(fim, npunkt, punkt, nelem, elem, nmom, mom);
 K = stivhet(nelem, elem, elementstivhet, npunkt);
 
 
-% ------Innfoerer randbetingelser-------
+% ------Innforer randbetingelser-------
 [Kn Bn] = bc(npunkt, punkt, K, b);
      
 
-% -----Løser ligningssytemet -------
+% -----Loser ligningssytemet -------
 rot = Kn\Bn;
 
 % -----Finner endemoment for hvert element -------
@@ -48,10 +48,10 @@ endemoment = endeM(nelem, elem, elementstivhet, rot, fim);
 midtmoment = midtM(nelem, elem, elementlengder, nlast,...
     last, endemoment);
 
-% -----Regner ut max bøyespenning for hvert element-----
+% -----Regner ut max boyespenning for hvert element-----
 bs = boyespenning(I, maxY, endemoment, midtmoment, nelem);
 
-% -----Regner ut skjærkreftene for hvert element-----
+% -----Regner ut skjarkreftene for hvert element-----
 skjar = skjarkraft(last, nlast, endemoment, nelem, elem,...
     elementlengder);
 

@@ -1,7 +1,7 @@
 function midtmoment = midtM(nelem, elem, elementlengder,...
     nlast, last, endemoment)
 
-% midtM regner ut momentet på midten av et element hvis det
+% midtM regner ut momentet pa midten av et element hvis det
 % er fordelt last, eller rett under en punktlast
 % nelem: Antall elementer
 % elem: Matrise med elementinformasjon
@@ -29,7 +29,7 @@ function midtmoment = midtM(nelem, elem, elementlengder,...
        midtmoment(i, 1) = (-m1 + m2) / 2;
        midtmoment(i, 2) = ingenlast;
        
-       % Traverserer lastene for å sjekke om elementer har
+       % Traverserer lastene for a sjekke om elementer har
        % en ytre last, oppdaterer da midtmomenter
        for j = 1 : nlast
            lok1_ = last(j, 2);
@@ -54,7 +54,7 @@ function midtmoment = midtM(nelem, elem, elementlengder,...
                    midtmoment(i, 3) = a;
                
                % Bruker superposisjon og regner ut
-               % momentet på midten
+               % momentet pa midten
                elseif last(j, 1) == fordeltlast
                    q1 = last(j, 4);
                    q2 = last(j, 5);

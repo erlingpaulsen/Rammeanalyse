@@ -21,7 +21,7 @@ function [elemstivhet, maxY, Is] = elementstivhet(nelem,...
         L = elementlengder(i);
         tvtype = elem(i, 4);
         
-        % Regner ut I for boksprofil eller rørprofil
+        % Regner ut I for boksprofil eller rorprofil
         % (-1 hvis ugyldig tverrsnittstype)
         if tvtype == 1
             lsteg = elem(i, 5)/(10^3); %Steglengde

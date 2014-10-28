@@ -21,8 +21,8 @@ function b = lastvektor(fim, npunkt, punkt, nelem,...
 
     end
     
-    % Går gjennom alle påsatte moment, og adderer disse
-    % på tilhørende knutepunkts fastinnspenningsmoment
+    % Gar gjennom alle pasatte moment, og adderer disse
+    % pa tilhorende knutepunkts fastinnspenningsmoment
     for i = 1:npunkt;
         for j = 1:nmom;
             if (i == mom(j, 1));

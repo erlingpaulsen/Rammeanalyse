@@ -1,8 +1,8 @@
 function nylast = splitlast(last, nlast, elem, punkt, npunkt)
 
 % splitlast endrer lastmatrisen slik at alle fordelte laster
-% som går over flere elemtenter vil bli splittet opp
-% i kortere fordelte laster som går over nøyaktig ett element.
+% som gar over flere elemtenter vil bli splittet opp
+% i kortere fordelte laster som gar over noyaktig ett element.
 % last: Den opprinnelige lastmatrisen.
 % nlast: antall laster i den opprinnelige lastmatrisen.
 % elem: matrise med alle elementer i konstruksjonen.
@@ -10,11 +10,11 @@ function nylast = splitlast(last, nlast, elem, punkt, npunkt)
 % npunkt: antal knutepunkter i konstruksjonen.
 %
 % nylast: Den nye lastmatrisen, hvor alle fordelte laster
-%         går over kun et element.
+%         gar over kun et element.
 
     nylast = [];
     
-    % Går gjennom alle fordelte laster i lastmatrisen,
+    % Gar gjennom alle fordelte laster i lastmatrisen,
     % og finner koordinatene til endepunktene gk1 og gk2
     for i = 1:nlast;
         if last(i, 1) == 1;
@@ -24,9 +24,9 @@ function nylast = splitlast(last, nlast, elem, punkt, npunkt)
             koord1 = [punkt(gk1, 1), punkt(gk1, 2)];
             koord2 = [punkt(gk2, 1), punkt(gk2, 2)];
                 
-            % Går gjennom alle punkter i konstruksjonen
+            % Gar gjennom alle punkter i konstruksjonen
             % og sjekker om punktet ligger mellom gk1 og
-            % gk2. I såfall må den fordelte lasten splittes.
+            % gk2. I safall ma den fordelte lasten splittes.
             for j = 1 : npunkt;
                 
                 % Dersom den fordelte lasten er vertlikal.
@@ -60,8 +60,8 @@ function nylast = splitlast(last, nlast, elem, punkt, npunkt)
             % Sorterer knutepunktene etter koordinatene.
             knutepunkter = sortbykoord(knutepunkter, punkt);
             
-            % Går gjennom alle knutepunkter den fordelte
-            % lasten virker på, og finner intensiteten
+            % Gar gjennom alle knutepunkter den fordelte
+            % lasten virker pa, og finner intensiteten
             % ved hvert knutepunkt.
             for j = 1 : length(knutepunkter);
                 for k = j + 1 : length(knutepunkter);

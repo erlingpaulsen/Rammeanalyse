@@ -1,18 +1,18 @@
 function svar = iboks(lsteg,lflens,tsteg,tflens)
 
-% Antar her at lengen til flensene måles fra ende til ende
-% og lengden til stegene måles fra bunn av toppflens
+% Antar her at lengen til flensene males fra ende til ende
+% og lengden til stegene males fra bunn av toppflens
 % til topp av bunnflens
 %
 % iboks regner ut annetarealmoment til et bokstversnitt
-% lsteg: lengde på stegene [mm]
-% tsteg: tykkelse på stegene [mm]
-% lflens: lengde på flensene [mm]
-% tflens: tykkelse på flensene [mm]
+% lsteg: lengde pa stegene [mm]
+% tsteg: tykkelse pa stegene [mm]
+% lflens: lengde pa flensene [mm]
+% tflens: tykkelse pa flensene [mm]
 %
 % svar: returnerer -1 ved ugyldig input, I ellers
 
-    % Sjekker at inputverdiene er gyldige tverrsnittsmål
+    % Sjekker at inputverdiene er gyldige tverrsnittsmal
     if (lsteg<=0 || lflens<=0 || tflens<=0 || tsteg<=0 ||...
             tsteg>=0.5*(lflens) || tflens>=(0.5*lsteg+tflens))
         svar = -1;

@@ -3,15 +3,15 @@ function printresultat(npunkt, punkt, nelem, elem,...
     boyespenning, skjar)
     
 % printresultat henter ut info om analysen elementvis og
-% skriver alt til en resultat-fil. Beregner også maksimal
-% bøyespenning og hvilken prosentandel denne utgjør av
+% skriver alt til en resultat-fil. Beregner ogsa maksimal
+% boyespenning og hvilken prosentandel denne utgjor av
 % flytspenningen.
 
     disp('--- Resultatet av analysen ligger lagret i resultat.txt ---');
     
     filid = fopen('resultat.txt', 'w');
     
-    % Plotter figuren med riktig nummer på knutepunkt
+    % Plotter figuren med riktig nummer pa knutepunkt
     % og elementer
     plotfig(npunkt, punkt, elem, nelem);
     
@@ -31,7 +31,7 @@ function printresultat(npunkt, punkt, nelem, elem,...
         if elem(i, 4) == 1
             tvtype = 'Boksprofil';
         elseif elem(i, 4) == 2
-            tvtype = 'Rørprofil';
+            tvtype = 'Roerprofil';
         end
         
         fprintf(filid, '    -Tversnittstype: %s\n', tvtype);
@@ -75,9 +75,9 @@ function printresultat(npunkt, punkt, nelem, elem,...
         end
         
         fprintf(filid,...
-            '    -Skjærkraft ende 1: %.3f [kN]\n', s1);
+            '    -Skjaerkraft ende 1: %.3f [kN]\n', s1);
         fprintf(filid,...
-            '    -Skjærkraft ende 2: %.3f [kN]\n', s2);
+            '    -Skjaerkraft ende 2: %.3f [kN]\n', s2);
         fprintf(filid,...
             '    -Rotasjon ende 1: %.6f\n', rot(elem(i, 1)));
         fprintf(filid,...
@@ -87,16 +87,16 @@ function printresultat(npunkt, punkt, nelem, elem,...
         
         if boyespenning(i, 2) == 1
             fprintf(filid,...
-'    -Maksimal bøyespenning (lokal ende 1): %.3f [MPa]\n', bs);
+'    -Maksimal boeyespenning (lokal ende 1): %.3f [MPa]\n', bs);
         elseif boyespenning(i, 2) == 2
             fprintf(filid,...
-'    -Maksimal bøyespenning (lokal ende 2): %.3f [MPa]\n', bs);
+'    -Maksimal boeyespenning (lokal ende 2): %.3f [MPa]\n', bs);
         elseif boyespenning(i, 2) == 3 && midtmoment(i, 2) == 0
             fprintf(filid,...
-'    -Maksimal bøyespenning (under punktlast): %.3f [MPa]\n', bs);
+'    -Maksimal boeyespenning (under punktlast): %.3f [MPa]\n', bs);
         else
             fprintf(filid,...
-'    -Maksimal bøyespenning (midt på): %.3f [MPa]\n', bs);
+'    -Maksimal boeyespenning (midt på): %.3f [MPa]\n', bs);
         end
         
         fprintf(filid, '\n');
@@ -108,7 +108,7 @@ function printresultat(npunkt, punkt, nelem, elem,...
     gbs = boyespenning(pos, 1);
     fy = 350;
     fprintf(filid,...
-  'Global maksimal bøyespenning (element %i): %.3f [MPa]\n',...
+  'Global maksimal boeyespenning (element %i): %.3f [MPa]\n',...
         pos, gbs/(10^6));
     fprintf(filid,...
         'Prosent av flytspenning (350 MPa): %.2f %%',...

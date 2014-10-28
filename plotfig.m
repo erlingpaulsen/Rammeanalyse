@@ -2,7 +2,7 @@ function  plotfig(npunkt, punkt, elem, nelem)
 
 % Plotfig lager et plot av den aktuelle konstruksjonen og
 % viser nummerering av knutepunkter og elementer, slik
-% at det blir enklere å analyse resultatet
+% at det blir enklere a analyse resultatet
 % npunkt: Antall punkter
 % punkt: Matrise med punktinformasjon
 % elem: Matrise med elementinformasjon
@@ -10,7 +10,7 @@ function  plotfig(npunkt, punkt, elem, nelem)
 
     m = zeros(nelem, 4);
     
-    % Begynner med å legge alle punkter inn i en matrise
+    % Begynner med a legge alle punkter inn i en matrise
     % slik at de enkelt kan plottes.
     for i = 1:nelem
         startx = punkt(elem(i, 1), 1);
@@ -35,7 +35,7 @@ function  plotfig(npunkt, punkt, elem, nelem)
     x = [m(:,1) m(:,3)];
     y = [m(:,2) m(:,4)];
     
-    %Plotter en linje mellom punkter der det går et element.
+    %Plotter en linje mellom punkter der det gar et element.
     plot(x',y', 'k', 'LineWidth', 2)
     hold on
     
@@ -64,12 +64,12 @@ function  plotfig(npunkt, punkt, elem, nelem)
     end
     
     % Lager dimensjonene av plottet. Bruker relative
-    % verdier slik at koden fungerer selv for små eller
+    % verdier slik at koden fungerer selv for sma eller
     % ekstremt store konstruksjoner.
     xlim([xmin - ((dx/4)) xmax + ((dx/4))]);
     ylim([ymin - ((dy/4)) ymax + ((dy/2) + 1)]);
     
-    % Litt forklarende tekst på plottet til slutt
+    % Litt forklarende tekst pa plottet til slutt
     title('Nummerering av knutepunkt og elementer');
     text(xmin, ymax+((dy/2.5)), 'Blå: knutepunktnr.');
     text(xmax-((dx/2)), ymax+((dy/2.5)),...

@@ -41,11 +41,11 @@ function fim = moment(npunkt, punkt, nelem, elem, nlast,...
                 + ((1/20) * lastint2 * (el)^2);
         else
             disp('Error: Ugyldig lasttype');
-            disåp('(0: Punktlast, 1: Fordelt last)');
+            disp('(0: Punktlast, 1: Fordelt last)');
             return;
         end
         
-        % Finner tilhørende elementnummer til knutepunktene og
+        % Finner tilhorende elementnummer til knutepunktene og
         % setter inn fastinnspenningsmomentet ved
         % lokal ende 1 og 2
         if elem(en, 1) == ende1

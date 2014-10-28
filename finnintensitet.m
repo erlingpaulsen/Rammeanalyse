@@ -9,7 +9,7 @@ function [i1, i2] = finnintensitet(lasti, k1, k2, punkt)
 %
 % Returner intensiteten ved k1 (i1) og k2 (i2)
    
-    % l er total avstand lasti går over, l1 er avstand fra
+    % l er total avstand lasti gar over, l1 er avstand fra
     % lastis lokal ende 1 til k1, l2 er avstand fra lasti's
     % lokal ende 1 til k2.
     l = pavstand(punkt(lasti(2), 1), punkt(lasti(2), 2),...

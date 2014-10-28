@@ -1,17 +1,13 @@
 function [npunkt, punkt, autodim, nelem, elem, nlast,...
     last, nmom, mom] = lesinput()
 
-
 %   %i = heltall (integer)  %f : desimaltall (flyt-tall)
 
-
-%Åpner inputfila
+%Apner inputfila
 filid = fopen('inputfig5.txt','r');
-
 
 %Leser antall knutepunkter
 npunkt = fscanf(filid,'%i',[1 1]);
-
 
 % Leser inn XY-koordinater til knutepunktene
 % Nodenummer tilsvarer radnummer i punkt
@@ -22,36 +18,33 @@ npunkt = fscanf(filid,'%i',[1 1]);
 punkt = fscanf(filid,'%f %f %i',[3 npunkt])';
 
 % Leser inn verdi for autodimensjonering
-% 0: Leser inn manuelt innskrevne tverrsnittsmål
+% 0: Leser inn manuelt innskrevne tverrsnittsmal
 % 1: Velger autodimensjonering
 autodim = fscanf(filid, '%i', [1 1]);
 
 % Leser antall elementer
 nelem = fscanf(filid,'%i',[1 1]);
 
-
 % Leser konnektivitet: Sammenheng elementender og 
-% knutepunktnummer. Samt EI og tverrsnittsmål for elementene
+% knutepunktnummer. Samt EI og tverrsnittsmal for elementene
 % Elementnummer tilsvarer radnummer i elem
 % Kolonne 1: Knutepunktnummer for lokal ende 1
 % Kolonne 2: Knutepunktnummer for lokal ende 2
 % Kolonne 3: E-modul [GPa]
 % Kolonne 4: Tverrsnittstype 
-%           (boksprofil = 1, rørprofil = 2)
-% Kolonne 5: Indre radius hvis rørprofil [mm], 
+%           (boksprofil = 1, rorprofil = 2)
+% Kolonne 5: Indre radius hvis rorprofil [mm], 
 %            steglengde [mm] hvis boksprofil
-% Kolonne 6: Ytre radius hvis rørprofil [mm], 
+% Kolonne 6: Ytre radius hvis rorprofil [mm], 
 %            flenslengde [mm] hvis boksprofil
 % Kolonne 7: Stegtykkelse [mm],
-%           (0 hvis rørprofil)
+%           (0 hvis rorprofil)
 % Kolonne 8: Flenstykkelse [mm],
-%           (0 hvis rørprofil)
+%           (0 hvis rorprofil)
 elem = fscanf(filid,'%i %i %f %i %f %f %f %f',[8 nelem])';
-
 
 % Leser antall laster 
 nlast = fscanf(filid,'%i',[1 1]);
-
 
 % Leser lastdata
 last = fscanf(filid,'%i %i %i %f %f %f',[6 nlast])';
@@ -62,14 +55,14 @@ nlast = length(last(:, 1));
 % Kolonne 3: Lokal ende 2
 % Kolonne 4: Intensitet ende 1 [N/m] hvis fordelt last,
 %            Intensitet [N] hvis punktlast
-%           (Positiv retning ned eller mot høyre dersom lokal
+%           (Positiv retning ned eller mot hoyre dersom lokal
 %            ende 1 er hhv til venstre eller ned for lokal
 %           ende 2)
-%Kolonne 5: Intensitet ende 2 [N/m] hvis fordelt last,
+% Kolonne 5: Intensitet ende 2 [N/m] hvis fordelt last,
 %           Vinkel i grader hvis punktlast
 %          (vinkelrett på bjelke => 0 vinkel, 
 %           positivt mot klokken)
-%Kolonne 6: Avstand fra ende 1 [m]
+% Kolonne 6: Avstand fra ende 1 [m]
 
 % Leser inn antall ytre momenter
 nmom = fscanf(filid, '%i', [1 1]);
@@ -79,12 +72,7 @@ mom = fscanf(filid, '%i %f', [2 nmom])';
 % Kolonne 1: Knutepunkt
 % Kolonne 2: Intensitet [N*m] (positivt med klokken)
 
-
-
 % Lukker inputfila
 fclose(filid);
-
-
-
 
 end

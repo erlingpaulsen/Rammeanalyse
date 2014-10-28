@@ -1,7 +1,7 @@
 function skjarkraft = skjarkraft(last, nlast, endeM,...
     nelem, elem, elementlengder)
 
-% Regner ut skjærkraften i hver ende i alle
+% Regner ut skjaerkraften i hver ende i alle
 % elementer i konstruksjonen.
 % last: matrise med alle laster i konstruksjonen.
 % nlast: antall laster i konstruksjonen
@@ -10,7 +10,7 @@ function skjarkraft = skjarkraft(last, nlast, endeM,...
 % elem: matrise med alle elementer i konstruksjonen.
 % elementlengder: Vektor med lengden til alle elementene.
 %
-% skjarkraft: (nelem x 2) matrise med endeskjærkraften
+% skjarkraft: (nelem x 2) matrise med endeskjaerkraften
 %             til hvert element.
 
     skjarkraft = zeros(nelem, 2);

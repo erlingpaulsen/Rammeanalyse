@@ -1,6 +1,6 @@
 function svar = q(nelem, elem, nlast, last, elementlengder)
 
-% q regner ut skjærkreftene fra ytre laster
+% q regner ut skjaerkreftene fra ytre laster
 % i lokal ende 1 og lokal ende 2
 % nelem: Antall elementer
 % elem: Matrise med elementinformasjon
@@ -8,7 +8,7 @@ function svar = q(nelem, elem, nlast, last, elementlengder)
 % last: Matrise med lastinformasjon
 % elementlengder: Vektor med elementlengder
 %
-% Returnerer en (nelem x 2) matrise med skjærkrefter fra
+% Returnerer en (nelem x 2) matrise med skjaerkrefter fra
 % ytre laster
 
     svar= zeros(nelem,2);

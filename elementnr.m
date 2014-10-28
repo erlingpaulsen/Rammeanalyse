@@ -7,7 +7,7 @@ function element = elementnr (a, b, elem, nelem)
 % elem: Matrise med elementinformasjon
 % nelem: Antall elementer
 %
-% element: Tilhørende element, returnerer -1 hvis
+% element: Tilhorende element, returnerer -1 hvis
 % elementet ikke eksisterer
 
     for i = 1 : nelem;

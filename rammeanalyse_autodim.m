@@ -1,9 +1,9 @@
 function rammeanalyse_autodim(npunkt, punkt, nelem, elem,...
     nlast, last, nmom, mom)
     
-% rammeanalyse_autodim kjører rammeanalysen inkrementelt til
+% rammeanalyse_autodim kjorer rammeanalysen inkrementelt til
 % tverrsnittsdimensjonene er store nok, slik at maksimal
-% bøyespenning i konstruksjonen er under 70 % av flytspenningen
+% boyespenning i konstruksjonen er under 70 % av flytspenningen
 % npunkt: Antall punkter
 % punkt: Matrise med punktinformasjon
 % nelem: Antall elementer
@@ -29,7 +29,7 @@ function rammeanalyse_autodim(npunkt, punkt, nelem, elem,...
         elementlengder);
     b = lastvektor(fim, npunkt, punkt, nelem, elem, nmom, mom);
     
-    % Kjører en løkke helt til bøyespenningskravet er oppfylt
+    % Kjorer en lokke helt til boyespenningskravet er oppfylt
     while prosent_fy > 70
         
         for i = 1 : nelem
@@ -62,7 +62,7 @@ function rammeanalyse_autodim(npunkt, punkt, nelem, elem,...
         gbs = bs(pos, 1);
         prosent_fy = ((gbs/(10^6))/fy)*100;
         
-        % Øker tverrsnittsdimensjonene inkrementelt
+        % Oker tverrsnittsdimensjonene inkrementelt
         lflens = lflens + 10;
         tflens = tflens + 1;
         lsteg = lsteg + 12;
@@ -77,7 +77,7 @@ function rammeanalyse_autodim(npunkt, punkt, nelem, elem,...
         rot, endemoment, midtmoment, bs, skjar);
     
     string = ['Autodimensjonering brukt. Endte opp med' ...
-        'følgende tverrsnittsprofiler:'];
+        'foelgende tverrsnittsprofiler:'];
     
     disp(string);
     disp('    -Boksprofil:');
@@ -85,7 +85,7 @@ function rammeanalyse_autodim(npunkt, punkt, nelem, elem,...
     fprintf('        -Flenslengde: %.2f [mm]\n', lflens);
     fprintf('        -Stegtykkelse: %.2f [mm]\n', tsteg);
     fprintf('        -Flenstykkelse: %.2f [mm]\n', tflens);
-    disp('    -Rørsprofil:');
+    disp('    -Roersprofil:');
     fprintf('        -Indre radius: %.2f [mm]\n', ir);
     fprintf('        -Ytre radius: %.2f [mm]\n', yr);
 

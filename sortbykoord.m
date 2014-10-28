@@ -13,9 +13,9 @@ function nykp = sortbykoord(kp, punkt)
     for i = (n-1) : -1 : 1;
         teller = 0;
         for j = 1 : i;
-            % Går gjennom alle knutepunkt. Sammenligner to
+            % Gar gjennom alle knutepunkt. Sammenligner to
             % og to elementer og bytter plass på de dersom
-            % det første er størst.
+            % det forste er storst.
             if (punkt(kp(j), 1) + punkt(kp(j), 2)...
                     > punkt(kp(j+1), 1) + punkt(kp(j+1), 2));
                 temp = kp(j+1);
