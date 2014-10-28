@@ -60,7 +60,7 @@ nlast = length(last(:, 1));
 %           ende 2)
 % Kolonne 5: Intensitet ende 2 [N/m] hvis fordelt last,
 %           Vinkel i grader hvis punktlast
-%          (vinkelrett på bjelke => 0 vinkel, 
+%          (vinkelrett pa bjelke => 0 vinkel, 
 %           positivt mot klokken)
 % Kolonne 6: Avstand fra ende 1 [m]
 
