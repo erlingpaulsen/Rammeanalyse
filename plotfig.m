@@ -65,6 +65,7 @@ function  plotfig(npunkt, punkt, elem, nelem)
     text(xmin, ymax+((dy/3.5)), 'Røde: elementnr.');
     text(xmax-((dx/2)), ymax+((dy/3.5)), 'o: fri rotasjon');
     grid off;
+    hold off;
 
 end
 
