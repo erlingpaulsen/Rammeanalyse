@@ -1,13 +1,16 @@
-function [elemstivhet, maxY, Is] = elementstivhet(nelem, elem, elementlengder)
+function [elemstivhet, maxY, Is] = elementstivhet(nelem,...
+                                        elem, elementlengder)
 
-% elementstivhet regner ut stivheten (EI/L) til et element og lengste
-% avstand fra arealsenteret
+% elementstivhet regner ut stivheten (EI/L) til et element,
+% lengste avstand fra arealsenteret og annet arealmoment for
+% tverrsnittet
 % E: elementets E-modul
 % nelem: Antall elementer
 % elem: Matrise med elementinformasjon
 % elementlengder: Vektor med elementlengder
 %
-% svar: returnerer -1 ved ugyldig input, elementstivhet og maxY ellers
+% svar: returnerer -1 ved ugyldig input, elementstivhet og
+% maxY ellers
    
     elemstivhet = zeros(nelem, 1);
     maxY = zeros(nelem, 1);
@@ -18,8 +21,8 @@ function [elemstivhet, maxY, Is] = elementstivhet(nelem, elem, elementlengder)
         L = elementlengder(i);
         tvtype = elem(i, 4);
         
-        % Regner ut I for boksprofil eller rørprofil (-1 hvis ugyldig
-        % tverrsnittstype
+        % Regner ut I for boksprofil eller rørprofil
+        % (-1 hvis ugyldig tverrsnittstype)
         if tvtype == 1
             lsteg = elem(i, 5)/(10^3); %Steglengde
             lflens = elem(i, 6)/(10^3); %Flenslengde
@@ -40,7 +43,8 @@ function [elemstivhet, maxY, Is] = elementstivhet(nelem, elem, elementlengder)
         
         Is(i) = I;
         
-        %Legger elementstivheten inn i en vektor (-1 hvis ugyldig input)
+        % Legger elementstivheten inn i en vektor
+        % (-1 hvis ugyldig input)
         if I == -1 
             elemstivhet(i) = -1; 
         else

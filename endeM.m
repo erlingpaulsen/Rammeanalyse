@@ -1,9 +1,11 @@
-function endemoment = endeM(nelem, elem, elementstivhet, rot, fim)
+function endemoment = endeM(nelem, elem, elementstivhet,...
+    rot, fim)
     
     endemoment = zeros(nelem, 2);
     lokalK = [4 2; 2 4];
     
-    % Summerer fastinnspenningsmoment og bjelkeendemoment fra rotasjoner
+    % Summerer fastinnspenningsmoment og
+    % bjelkeendemoment fra rotasjoner
     for i = 1 : nelem
        lokal1 = elem(i, 1);
        lokal2 = elem(i, 2);

@@ -1,5 +1,19 @@
-function rammeanalyse_autodim(npunkt, punkt, nelem, elem, nlast, last, nmom, mom)
+function rammeanalyse_autodim(npunkt, punkt, nelem, elem,...
+    nlast, last, nmom, mom)
     
+% rammeanalyse_autodim kjører rammeanalysen inkrementelt til
+% tverrsnittsdimensjonene er store nok, slik at maksimal
+% bøyespenning i konstruksjonen er under 70 % av flytspenningen
+% npunkt: Antall punkter
+% punkt: Matrise med punktinformasjon
+% nelem: Antall elementer
+% elem: Matrise med elementinformasjon
+% nlast: Antall laster
+% last: Matrise med lastinformasjon
+% nmom: Antall ytre momenter
+% mom: Matrise med momentinformasjon
+    
+    % Startverdier for tverrsnittene
     lflens = 50;
     tflens = 1;
     lsteg = 50;
@@ -14,6 +28,7 @@ function rammeanalyse_autodim(npunkt, punkt, nelem, elem, nlast, last, nmom, mom
     fim = moment(npunkt, punkt, nelem, elem, nlast, last, elementlengder);
     b = lastvektor(fim, npunkt, punkt, nelem, elem, nmom, mom);
     
+    % Kjører en løkke helt til bøyespenningskravet er oppfylt
     while prosent_fy > 70
         
         for i = 1 : nelem
@@ -28,21 +43,25 @@ function rammeanalyse_autodim(npunkt, punkt, nelem, elem, nlast, last, nmom, mom
             end
         end
         
-        [elemstivhet, maxY, I] = elementstivhet(nelem, elem, elementlengder);
+        [elemstivhet, maxY, I] = elementstivhet(nelem, elem,...
+            elementlengder);
         K = stivhet(nelem, elem, elemstivhet, npunkt);
         [Kn, Bn] = bc(npunkt, punkt, K, b);
         rot = Kn\Bn;
         endemoment = endeM(nelem, elem, elemstivhet, rot, fim);
-        midtmoment = midtM(nelem, elem, elementlengder, nlast, last, endemoment);
-        bs = boyespenning(I, maxY, endemoment, midtmoment, nelem);
-        skjar = skjarkraft(last, nlast, endemoment, nelem, elem, elementlengder);
+        midtmoment = midtM(nelem, elem, elementlengder,...
+            nlast, last, endemoment);
+        bs = boyespenning(I, maxY, endemoment, midtmoment,...
+            nelem);
+        skjar = skjarkraft(last, nlast, endemoment, nelem,...
+            elem, elementlengder);
         
         gbsabs = max(abs(bs(:, 1)));
         pos = gbsabs == abs(bs(:, 1));
         gbs = bs(pos, 1);
         prosent_fy = ((gbs/(10^6))/fy)*100;
         
-        
+        % Øker tverrsnittsdimensjonene inkrementelt
         lflens = lflens + 10;
         tflens = tflens + 1;
         lsteg = lsteg + 12;
@@ -51,8 +70,15 @@ function rammeanalyse_autodim(npunkt, punkt, nelem, elem, nlast, last, nmom, mom
         yr = yr + 5.3;
     end
     
-    printresultat(npunkt, punkt, nelem, elem, elementlengder, rot, endemoment, midtmoment, bs, skjar);
-    disp('Autodimensjonering brukt. Endte opp med følgende tverrsnittsprofiler:');
+    % Printer resultatet til en tekstfil, og printer ut
+    % tverrsnittsdimensjonene programmet kom fram til
+    printresultat(npunkt, punkt, nelem, elem, elementlengder,...
+        rot, endemoment, midtmoment, bs, skjar);
+    
+    string = ['Autodimensjonering brukt. Endte opp med' ...
+        'følgende tverrsnittsprofiler:'];
+    
+    disp(string);
     disp('    -Boksprofil:');
     fprintf('        -Steglengde: %.2f [mm]\n', lsteg);
     fprintf('        -Flenslengde: %.2f [mm]\n', lflens);

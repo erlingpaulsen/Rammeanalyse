@@ -1,7 +1,8 @@
-function midtmoment = midtM(nelem, elem, elementlengder, nlast, last, endemoment)
+function midtmoment = midtM(nelem, elem, elementlengder,...
+    nlast, last, endemoment)
 
-% midtM regner ut momentet på midten av et element hvis det er fordelt
-% last, eller rett under en punktlast
+% midtM regner ut momentet på midten av et element hvis det
+% er fordelt last, eller rett under en punktlast
 % nelem: Antall elementer
 % elem: Matrise med elementinformasjon
 % elementlengder: Vektor med elementlengder
@@ -9,7 +10,8 @@ function midtmoment = midtM(nelem, elem, elementlengder, nlast, last, endemoment
 % last: Matrise med lastinformasjon
 % endemoment: Matrise med elementvis endemomenter
 %
-% midtmoment: Matrise med midtmoment, lasttype og avstand fra lokal ende 1
+% midtmoment: Matrise med midtmoment, lasttype og
+%             avstand fra lokal ende 1
 
     punktlast = 0;
     fordeltlast = 1;
@@ -27,34 +29,38 @@ function midtmoment = midtM(nelem, elem, elementlengder, nlast, last, endemoment
        midtmoment(i, 1) = (-m1 + m2) / 2;
        midtmoment(i, 2) = ingenlast;
        
-       % Traverserer lastene for å sjekke om elementer har en ytre last,
-       % oppdaterer da midtmomenter
+       % Traverserer lastene for å sjekke om elementer har
+       % en ytre last, oppdaterer da midtmomenter
        for j = 1 : nlast
            lok1_ = last(j, 2);
            lok2_ = last(j, 3);
            
-           if (lok1 == lok1_ && lok2 == lok2_) || (lok1 == lok2_ && lok2 == lok1_)
+           if (lok1 == lok1_ && lok2 == lok2_) ||...
+                   (lok1 == lok2_ && lok2 == lok1_)
                
                L = elementlengder(i);
                
-               % Bruker superposisjon og regner ut momentet under en
-               % punktlast
+               % Bruker superposisjon og regner ut momentet
+               % under en punktlast
                if last(j, 1) == punktlast
                    a = last(j, 6);
                    teta = last(j, 5);
                    P = last(j, 4);
                    endembidrag = (-m1 * (L - a) + (m2 * a)) / L;
-                   punktbidrag = (-(P * cosd(teta)) * a * (L - a)) / L;
+                   punktbidrag = (-(P * cosd(teta))...
+                                 * a * (L - a)) / L;
                    midtmoment(i, 1) = endembidrag + punktbidrag;
                    midtmoment(i, 2) = punktlast;
                    midtmoment(i, 3) = a;
                
-               % Bruker superposisjon og regner ut momentet på midten
+               % Bruker superposisjon og regner ut
+               % momentet på midten
                elseif last(j, 1) == fordeltlast
                    q1 = last(j, 4);
                    q2 = last(j, 5);
                    endembidrag = (-m1 + m2) / 2;
-                   fordeltbidrag = - ((q1 * L^2) / 16) - ((q2 * L^2) / 16);
+                   fordeltbidrag = - ((q1 * L^2) / 16)...
+                                   - ((q2 * L^2) / 16);
                    midtmoment(i, 1) = endembidrag + fordeltbidrag;
                    midtmoment(i, 2) = fordeltlast;
                    midtmoment(i, 3) = L/2;

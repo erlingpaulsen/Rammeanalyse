@@ -1,12 +1,14 @@
 function [Kn, Bn] = bc(npunkt, punkt, K, b)
 
-% bc innfører randbetingelser (1: fast innspent, 0: fri rotasjon)
+% bc innfører randbetingelser 
+% (1: fast innspent, 0: fri rotasjon)
 % npunkt: Antall punkter
 % punkt: Matrise med punktinformasjon
 % K: Systemstivhetsmatrisa
 % b: Lastvektor
 %
-% [Kn, Bn]: Returnerer en oppdatert systemstivhetsmatrise og lastvektor
+%[Kn, Bn]: Returnerer en oppdatert systemstivhetsmatrise
+% og lastvektor
 
     Kn = K;
     Bn = b;
@@ -15,7 +17,8 @@ function [Kn, Bn] = bc(npunkt, punkt, K, b)
     for n = 1 : npunkt
        if punkt(n, 3) == 1
            
-           % Nuller ut tilhørende rad og kolonne i systemstivhetsmatrisa
+           % Nuller ut tilhørende rad og kolonne i 
+           % systemstivhetsmatrisa
            for m = 1 : npunkt
               Kn(n, m) = 0;
               Kn(m, n) = 0;

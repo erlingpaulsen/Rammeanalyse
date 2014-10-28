@@ -13,11 +13,12 @@ function svar = iboks(lsteg,lflens,tsteg,tflens)
 % svar: returnerer -1 ved ugyldig input, I ellers
 
     % Sjekker at inputverdiene er gyldige tverrsnittsmål
-    if (lsteg<=0 || lflens<=0 || tflens<=0 || tsteg<=0 || tsteg>=0.5*(lflens) || tflens>=(0.5*lsteg+tflens))
+    if (lsteg<=0 || lflens<=0 || tflens<=0 || tsteg<=0 ||...
+            tsteg>=0.5*(lflens) || tflens>=(0.5*lsteg+tflens))
         svar = -1;
     
-    % Regner ut I til hele den ytre boksen og trekker fra I til den indre
-    % boksen (luft)
+    % Regner ut I til hele den ytre boksen og trekker
+    % fra I til den indre boksen (luft)
     else 
         ytrei = (1/12)*((lsteg+2*tflens)^3*lflens);
         indrei = (1/12)*(lsteg^3*(lflens-2*tsteg));

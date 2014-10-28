@@ -1,9 +1,16 @@
-function printresultat(npunkt, punkt, nelem, elem, elementlengder, rot, endemoment, midtmoment, boyespenning, skjar)
+function printresultat(npunkt, punkt, nelem, elem,...
+    elementlengder, rot, endemoment, midtmoment,...
+    boyespenning, skjar)
+    
+% printresultat henter ut info om analysen elementvis og
+% skriver alt til en resultat-fil.
 
     disp('--- Resultatet av analysen ligger lagret i resultat.txt ---');
     
     filid = fopen('resultat.txt', 'w');
     
+    % Plotter figuren med riktig nummer på knutepunkt
+    % og elementer
     plotfig(npunkt, punkt, elem, nelem);
     
     fprintf(filid, '--Resultat av rammeanalyse--\n\n');
@@ -16,7 +23,8 @@ function printresultat(npunkt, punkt, nelem, elem, elementlengder, rot, endemome
         fprintf(filid, 'Element %i:\n', i);
         fprintf(filid, '    -Lokal ende 1: %i\n', elem(i, 1));
         fprintf(filid, '    -Lokal ende 2: %i\n', elem(i, 2));
-        fprintf(filid, '    -Lengde: %.2f [m]\n', elementlengder(i));
+        fprintf(filid,...
+            '    -Lengde: %.2f [m]\n', elementlengder(i));
         
         if elem(i, 4) == 1
             tvtype = 'Boksprofil';
@@ -34,39 +42,59 @@ function printresultat(npunkt, punkt, nelem, elem, elementlengder, rot, endemome
         
         if midtmoment(i, 2) == -1
             lasttype = 'Ingen ytre last';
-            fprintf(filid, '    -Ytre last: %s\n', lasttype);
-            fprintf(filid, '    -Moment ende 1: %.3f [kNm]\n', m1);
-            fprintf(filid, '    -Moment midt på element: %.3f [kNm]\n', m3);
-            fprintf(filid, '    -Moment ende 2: %.3f [kNm]\n', m2);
+            fprintf(filid,...
+                '    -Ytre last: %s\n', lasttype);
+            fprintf(filid,...
+                '    -Moment ende 1: %.3f [kNm]\n', m1);
+            fprintf(filid,...
+             '    -Moment midt på element: %.3f [kNm]\n', m3);
+            fprintf(filid,...
+                '    -Moment ende 2: %.3f [kNm]\n', m2);
         elseif midtmoment(i, 2) == 0
             lasttype = 'Punktlast';
-            fprintf(filid, '    -Ytre last: %s\n', lasttype);
-            fprintf(filid, '    -Moment ende 1: %.3f [kNm]\n', m1);
-            fprintf(filid, '    -Moment under punktlast: %.3f [kNm]\n', m3);
-            fprintf(filid, '    -Moment ende 2: %.3f [kNm]\n', m2);
+            fprintf(filid,...
+                '    -Ytre last: %s\n', lasttype);
+            fprintf(filid,...
+                '    -Moment ende 1: %.3f [kNm]\n', m1);
+            fprintf(filid,...
+             '    -Moment under punktlast: %.3f [kNm]\n', m3);
+            fprintf(filid,...
+                '    -Moment ende 2: %.3f [kNm]\n', m2);
         else
             lasttype = 'Fordelt last';
-            fprintf(filid, '    -Ytre last: %s\n', lasttype);
-            fprintf(filid, '    -Moment ende 1: %.3f [kNm]\n', m1);
-            fprintf(filid, '    -Moment midt på element: %.3f [kNm]\n', m3);
-            fprintf(filid, '    -Moment ende 2: %.3f [kNm]\n', m2);
+            fprintf(filid,...
+                '    -Ytre last: %s\n', lasttype);
+            fprintf(filid,...
+                '    -Moment ende 1: %.3f [kNm]\n', m1);
+            fprintf(filid,...
+             '    -Moment midt på element: %.3f [kNm]\n', m3);
+            fprintf(filid,...
+                '    -Moment ende 2: %.3f [kNm]\n', m2);
         end
         
-        fprintf(filid, '    -Skjærkraft ende 1: %.3f [kN]\n', s1);
-        fprintf(filid, '    -Skjærkraft ende 2: %.3f [kN]\n', s2);
-        fprintf(filid, '    -Rotasjon ende 1: %.6f\n', rot(elem(i, 1)));
-        fprintf(filid, '    -Rotasjon ende 2: %.6f\n', rot(elem(i, 2)));
+        fprintf(filid,...
+            '    -Skjærkraft ende 1: %.3f [kN]\n', s1);
+        fprintf(filid,...
+            '    -Skjærkraft ende 2: %.3f [kN]\n', s2);
+        fprintf(filid,...
+            '    -Rotasjon ende 1: %.6f\n', rot(elem(i, 1)));
+        fprintf(filid,...
+            '    -Rotasjon ende 2: %.6f\n', rot(elem(i, 2)));
         
         bs = boyespenning(i, 1)/(10^6);
         
         if boyespenning(i, 2) == 1
-            fprintf(filid, '    -Maksimal bøyespenning (lokal ende 1): %.3f [MPa]\n', bs);
+            fprintf(filid,...
+'    -Maksimal bøyespenning (lokal ende 1): %.3f [MPa]\n', bs);
         elseif boyespenning(i, 2) == 2
-            fprintf(filid, '    -Maksimal bøyespenning (lokal ende 2): %.3f [MPa]\n', bs);
+            fprintf(filid,...
+'    -Maksimal bøyespenning (lokal ende 2): %.3f [MPa]\n', bs);
         elseif boyespenning(i, 2) == 3 && midtmoment(i, 2) == 0
-            fprintf(filid, '    -Maksimal bøyespenning (under punktlast): %.3f [MPa]\n', bs);
+            fprintf(filid,...
+'    -Maksimal bøyespenning (under punktlast): %.3f [MPa]\n', bs);
         else
-            fprintf(filid, '    -Maksimal bøyespenning (midt på): %.3f [MPa]\n', bs);
+            fprintf(filid,...
+'    -Maksimal bøyespenning (midt på): %.3f [MPa]\n', bs);
         end
         
         fprintf(filid, '\n');
@@ -77,8 +105,12 @@ function printresultat(npunkt, punkt, nelem, elem, elementlengder, rot, endemome
     pos = find(gbsabs == abs(boyespenning(:, 1)));
     gbs = boyespenning(pos, 1);
     fy = 350;
-    fprintf(filid, 'Global maksimal bøyespenning (element %i): %.3f [MPa]\n', pos, gbs/(10^6));
-    fprintf(filid, 'Prosent av flytspenning (350 MPa): %.2f %%', ((gbs/(10^6))/fy)*100);
+    fprintf(filid,...
+  'Global maksimal bøyespenning (element %i): %.3f [MPa]\n',...
+        pos, gbs/(10^6));
+    fprintf(filid,...
+        'Prosent av flytspenning (350 MPa): %.2f %%',...
+        ((gbs/(10^6))/fy)*100);
     
     fclose(filid);
 

@@ -1,4 +1,5 @@
-function b = lastvektor(fim, npunkt, punkt, nelem, elem, nmom, mom)
+function b = lastvektor(fim, npunkt, punkt, nelem,...
+    elem, nmom, mom)
 
 % lastvektor beregner lastvektoren til systemet
 % fim: Vektor med fastinnspenningsmomenter
@@ -11,8 +12,8 @@ function b = lastvektor(fim, npunkt, punkt, nelem, elem, nmom, mom)
 
     b = zeros(npunkt, 1);
 
-    % Summerer fastinnspenningsmoment med negativt fortegn for begge lokale ender for hvert
-    % element 
+    % Summerer fastinnspenningsmoment med negativt fortegn
+    % for begge lokale ender for hvert element 
     for i = 1:nelem;
     
       b(elem(i,1)) = b(elem(i,1)) + fim(2*i-1)*-1;
@@ -20,8 +21,8 @@ function b = lastvektor(fim, npunkt, punkt, nelem, elem, nmom, mom)
 
     end
     
-    % Går gjennom alle påsatte moment, og adderer disse på tilhørende
-    % knutepunkts fastinnspenningsmoment
+    % Går gjennom alle påsatte moment, og adderer disse
+    % på tilhørende knutepunkts fastinnspenningsmoment
     for i = 1:npunkt;
         for j = 1:nmom;
             if (i == mom(j, 1));
