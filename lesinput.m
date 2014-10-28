@@ -5,7 +5,7 @@ function [npunkt, punkt, nelem, elem, nlast, last, nmom, mom]=lesinput()
 
 
 %Åpner inputfila
-filid = fopen('inputfig5.txt','r');
+filid = fopen('inputfig3.txt','r');
 
 
 %Leser antall knutepunkter
@@ -29,10 +29,10 @@ nelem = fscanf(filid,'%i',[1 1]);
 % Knutepunktnummer for lokal ende 2 lagres i kolonne 2
 % E-modul for materiale lagres i kolonne 3 [GPa]
 % Tverrsnittstype lagres i kolonne 4, boksprofil=1 og rørprofil=2
-% Indre radius hvis rørprofil [m] , steglengde hvis boksprofil lagres i kolonne 5
-% Ytre radius hvis rørprofil [m] , flenslengde hvis boksprofil lagres i kolonne 6
-% Stegtykkelse [m] (0 hvis rørprofil) lagres i kolonne 7
-% Flenstykkelse [m] (0 hvis rørprofil) lagres i kolonne 8
+% Indre radius hvis rørprofil [mm] , steglengde hvis boksprofil lagres i kolonne 5
+% Ytre radius hvis rørprofil [mm] , flenslengde hvis boksprofil lagres i kolonne 6
+% Stegtykkelse [mm] (0 hvis rørprofil) lagres i kolonne 7
+% Flenstykkelse [mm] (0 hvis rørprofil) lagres i kolonne 8
 elem = fscanf(filid,'%i %i %f %i %f %f %f %f',[8 nelem])';
 
 

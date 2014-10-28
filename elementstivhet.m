@@ -21,16 +21,16 @@ function [elemstivhet, maxY, Is] = elementstivhet(nelem, elem, elementlengder)
         % Regner ut I for boksprofil eller rørprofil (-1 hvis ugyldig
         % tverrsnittstype
         if tvtype == 1
-            lsteg = elem(i, 5); %Steglengde
-            lflens = elem(i, 6); %Flenslengde
-            tsteg = elem(i, 7); %Stegtykkelse
-            tflens = elem(i, 8); %Flenstykkelse
+            lsteg = elem(i, 5)/(10^3); %Steglengde
+            lflens = elem(i, 6)/(10^3); %Flenslengde
+            tsteg = elem(i, 7)/(10^3); %Stegtykkelse
+            tflens = elem(i, 8)/(10^3); %Flenstykkelse
             
             I = iboks(lsteg, lflens, tsteg, tflens);
             maxY(i) = lsteg + 2*tflens;
         elseif tvtype == 2
-            ir = elem(i, 5); %Indre radius
-            yr = elem(i, 6); %Ytre radius
+            ir = elem(i, 5)/(10^3); %Indre radius
+            yr = elem(i, 6)/(10^3); %Ytre radius
             
             I = iror(ir, yr);
             maxY(i) = yr;
