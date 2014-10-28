@@ -1,4 +1,5 @@
-function  plotfig( npunkt, punkt, elem, nelem )
+function  plotfig(npunkt, punkt, elem, nelem)
+
     m = zeros(nelem, 4);
     %Denne funksjonen var ikke en del av selve oppgaven, men den gir et
     %simpelt plot av hvordan konstruksjonen ser ut, er greit for å få
@@ -16,7 +17,8 @@ function  plotfig( npunkt, punkt, elem, nelem )
         m(i, 3) = endx;
         m(i, 4) = endy;
     end
-    %Lagrer alle minimus og maximus verdier, slik at det enkelt kan lages
+    
+    %Lagrer alle minimum- og maximumverdier, slik at det enkelt kan lages
     %et koordinatsystem
     xmin = min(punkt(:,1));
     xmax = max(punkt(:,1));
@@ -27,9 +29,11 @@ function  plotfig( npunkt, punkt, elem, nelem )
     
     x = [m(:,1) m(:,3)];
     y = [m(:,2) m(:,4)];
+    
     %Plotter en linje mellom punkter det går et element.
     plot(x',y', 'k', 'LineWidth', 2)
     hold on
+    
     %Her legges det til en 'o' for punkt med fri rotasjon og en 'x' for
     %punkter som er fastholdt for rotasjon.
     for j = 1:npunkt
@@ -48,10 +52,12 @@ function  plotfig( npunkt, punkt, elem, nelem )
             text(((m(k,1)+m(k,3))/2), ((m(k,2)+m(k,4))/2)-(dy/15), num2str(k), 'Color', 'r');
         end
     end
+    
     %Her lages dimensjonene av plottet, må bruke relative verdier slik at
     %koden fungerer selv for små eller ekstremt store konstruksjoner.
     xlim([xmin-((dx/4)) xmax+((dx/4))]);
     ylim([ymin-((dy/4)) ymax+((dy/2)+1)]);
+    
     %Litt forklarende tekst på plottet til slutt
     title('Nummerering av knutepunkt og elementer');
     text(xmin, ymax+((dy/2.5)), 'Blå: knutepunktnr.');
