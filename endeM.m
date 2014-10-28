@@ -1,6 +1,16 @@
 function endemoment = endeM(nelem, elem, elementstivhet,...
     rot, fim)
-    
+
+% endeM regner ut endemomentet ved lokal ende 1 og lokal ende 2
+% for alle elementene i konstruksjonen
+% nelem: Antall elementer
+% elem: Matrise med elementinformasjon
+% elementstivhet: Vektor med elementstivhet
+% rot: Vektor med rotasjonen i knutepunktene
+% fim: Vektor med fastinnspenningsmomenter
+%
+% endemoment er en (2 x nelem) matrise
+
     endemoment = zeros(nelem, 2);
     lokalK = [4 2; 2 4];
     

@@ -10,7 +10,8 @@ function K = stivhet(nelem, elem, elementstivhet, npunkt)
     lokalk = [4 2; 2 4];
     K = zeros(npunkt);
     
-    for i = 1:nelem
+    for i = 1 : nelem
+        
         % Fyller opp systemstivhetsmatrisa K ved hjelp av
         % elementstivhetsmatrisa og elementstivheten
         lok1 = elem(i, 1);

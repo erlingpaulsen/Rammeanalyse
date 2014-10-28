@@ -1,9 +1,12 @@
 function  plotfig(npunkt, punkt, elem, nelem)
 
-% Denne funksjonen var ikke en del av selve oppgaven, men den
-% gir et simpelt plot av hvordan konstruksjonen ser ut,
-% er greit for å få visualisert konstruksjonen og det blir
-% enklere når den skal tegnes.
+% Plotfig lager et plot av den aktuelle konstruksjonen og
+% viser nummerering av knutepunkter og elementer, slik
+% at det blir enklere å analyse resultatet
+% npunkt: Antall punkter
+% punkt: Matrise med punktinformasjon
+% elem: Matrise med elementinformasjon
+% nelem: Antall elementer
 
     m = zeros(nelem, 4);
     
@@ -32,12 +35,12 @@ function  plotfig(npunkt, punkt, elem, nelem)
     x = [m(:,1) m(:,3)];
     y = [m(:,2) m(:,4)];
     
-    %Plotter en linje mellom punkter det går et element.
+    %Plotter en linje mellom punkter der det går et element.
     plot(x',y', 'k', 'LineWidth', 2)
     hold on
     
-    % Her legges det til en 'o' for punkt med fri rotasjon
-    % og en 'x' for punkter som er fastholdt for rotasjon.
+    % Markerer punkter med 'o' der vi har fri rotasjon,
+    % 'x' der vi har fastholdt for rotasjon.
     for j = 1:npunkt
         if (punkt(j,3)==0)
             plot(punkt(j,1),punkt(j,2), 'o', 'Color', 'k')
@@ -60,7 +63,7 @@ function  plotfig(npunkt, punkt, elem, nelem)
         end
     end
     
-    % Her lages dimensjonene av plottet, må bruke relative
+    % Lager dimensjonene av plottet. Bruker relative
     % verdier slik at koden fungerer selv for små eller
     % ekstremt store konstruksjoner.
     xlim([xmin - ((dx/4)) xmax + ((dx/4))]);

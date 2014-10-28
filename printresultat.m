@@ -3,7 +3,9 @@ function printresultat(npunkt, punkt, nelem, elem,...
     boyespenning, skjar)
     
 % printresultat henter ut info om analysen elementvis og
-% skriver alt til en resultat-fil.
+% skriver alt til en resultat-fil. Beregner også maksimal
+% bøyespenning og hvilken prosentandel denne utgjør av
+% flytspenningen.
 
     disp('--- Resultatet av analysen ligger lagret i resultat.txt ---');
     

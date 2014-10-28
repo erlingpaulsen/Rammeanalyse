@@ -22,10 +22,11 @@ function rammeanalyse_autodim(npunkt, punkt, nelem, elem,...
     yr = 25;
     
     prosent_fy = 100;
-    fy = 350;
+    fy = 350; % Flytspenning
     
     elementlengder = lengder(punkt,elem,nelem);
-    fim = moment(npunkt, punkt, nelem, elem, nlast, last, elementlengder);
+    fim = moment(npunkt, punkt, nelem, elem, nlast, last,...
+        elementlengder);
     b = lastvektor(fim, npunkt, punkt, nelem, elem, nmom, mom);
     
     % Kjører en løkke helt til bøyespenningskravet er oppfylt

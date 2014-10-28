@@ -1,14 +1,19 @@
-function svar=lengder(knutepunkt,element,nelem)
+function svar=lengder(punkt,elem,nelem)
 
+% lengder regner ut elementlengdene
+% punkt: Matrise med punktinformasjon
+% elem: Matrise med elementinformasjon
+% nelem: Antall elementer
+%
+% Returnerer en vektor med elementlengdene
 
-svar=zeros(nelem,1);
+    svar=zeros(nelem,1);
 
-% Beregner elementlengder
-for i=1:nelem
-   dx = knutepunkt(element(i,1),1)-knutepunkt(element(i,2),1);
-   dy = knutepunkt(element(i,1),2)-knutepunkt(element(i,2),2);
-   svar(i) = sqrt(dx*dx + dy*dy);
-end
-
+    % Beregner elementlengder
+    for i=1:nelem
+       dx = punkt(elem(i,1),1)-punkt(elem(i,2),1);
+       dy = punkt(elem(i,1),2)-punkt(elem(i,2),2);
+       svar(i) = sqrt(dx*dx + dy*dy);
+    end
 
 end
