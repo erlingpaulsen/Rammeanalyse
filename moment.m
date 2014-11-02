@@ -37,9 +37,7 @@ function fim = moment(nelem, elem, nlast, last, elementlengder)
             temp1 = ((-1/20) * lastint1 * (el)^2) + ((-1/30) * lastint2 * (el)^2);
             temp2 = ((1/30) * lastint1 * (el)^2) + ((1/20) * lastint2 * (el)^2);
         else
-            disp('Error: Ugyldig lasttype');
-            disp('(0: Punktlast, 1: Fordelt last)');
-            return;
+            error('Ugyldig lasttype. 0: punktlast, 1: fordelt last.');
         end
         
         % Finner tilhorende elementnummer til knutepunktene og
