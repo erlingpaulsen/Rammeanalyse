@@ -33,13 +33,14 @@ function midtmoment = midtM(nelem, elem, elementlengder, nlast, last, endemoment
        for j = 1 : nlast
            lok1_ = last(j, 2);
            lok2_ = last(j, 3);
+           lasttype = last(j, 1);
            
            if (lok1 == lok1_ && lok2 == lok2_) || (lok1 == lok2_ && lok2 == lok1_)
                
                L = elementlengder(i);
                
                % Bruker superposisjon og regner ut momentet under en punktlast
-               if last(j, 1) == punktlast
+               if lasttype == punktlast
                    a = last(j, 6);
                    teta = last(j, 5);
                    P = last(j, 4);
@@ -50,9 +51,9 @@ function midtmoment = midtM(nelem, elem, elementlengder, nlast, last, endemoment
                    midtmoment(i, 3) = a;
                
                % Bruker superposisjon og regner ut momentet pa midten
-               elseif last(j, 1) == fordeltlast
-                   q1 = last(j, 4);
-                   q2 = last(j, 5);
+               elseif lasttype == fordeltlast
+                   q1 = last(j, 4); % Intensitet ende 1
+                   q2 = last(j, 5); % Intensitet ende 2
                    endembidrag = (-m1 + m2) / 2;
                    fordeltbidrag = - ((q1 * L^2) / 16) - ((q2 * L^2) / 16);
                    midtmoment(i, 1) = endembidrag + fordeltbidrag;
