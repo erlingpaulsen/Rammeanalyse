@@ -1,9 +1,9 @@
 function rammeanalyse_autodim(npunkt, punkt, nelem, elem,...
     nlast, last, nmom, mom)
     
-% rammeanalyse_autodim kjorer rammeanalysen inkrementelt til
-% tverrsnittsdimensjonene er store nok, slik at maksimal
-% boyespenning i konstruksjonen er under 70 % av flytspenningen
+% rammeanalyse_autodim kjorer rammeanalysen inkrementelt til tverrsnittsdimensjonene
+% er store nok, slik at maksimal boyespenning i konstruksjonen er under
+% 70 % av flytspenningen
 % npunkt: Antall punkter
 % punkt: Matrise med punktinformasjon
 % nelem: Antall elementer
@@ -22,12 +22,11 @@ function rammeanalyse_autodim(npunkt, punkt, nelem, elem,...
     yr = 25;
     
     prosent_fy = 100;
-    fy = 350; % Flytspenning
+    fy = 320; % Flytspenning
     
     elementlengder = lengder(punkt,elem,nelem);
-    fim = moment(npunkt, punkt, nelem, elem, nlast, last,...
-        elementlengder);
-    b = lastvektor(fim, npunkt, punkt, nelem, elem, nmom, mom);
+    fim = moment(nelem, elem, nlast, last, elementlengder);
+    b = lastvektor(fim, npunkt, nelem, elem, nmom, mom);
     
     % Kjorer en lokke helt til boyespenningskravet er oppfylt
     while prosent_fy > 70
@@ -44,18 +43,14 @@ function rammeanalyse_autodim(npunkt, punkt, nelem, elem,...
             end
         end
         
-        [elemstivhet, maxY, I] = elementstivhet(nelem, elem,...
-            elementlengder);
+        [elemstivhet, maxY, I] = elementstivhet(nelem, elem, elementlengder);
         K = stivhet(nelem, elem, elemstivhet, npunkt);
         [Kn, Bn] = bc(npunkt, punkt, K, b);
         rot = Kn\Bn;
         endemoment = endeM(nelem, elem, elemstivhet, rot, fim);
-        midtmoment = midtM(nelem, elem, elementlengder,...
-            nlast, last, endemoment);
-        bs = boyespenning(I, maxY, endemoment, midtmoment,...
-            nelem);
-        skjar = skjarkraft(last, nlast, endemoment, nelem,...
-            elem, elementlengder);
+        midtmoment = midtM(nelem, elem, elementlengder, nlast, last, endemoment);
+        bs = boyespenning(I, maxY, endemoment, midtmoment, nelem);
+        skjar = skjarkraft(last, nlast, endemoment, nelem, elem, elementlengder);
         
         gbsabs = max(abs(bs(:, 1)));
         pos = gbsabs == abs(bs(:, 1));
@@ -63,10 +58,10 @@ function rammeanalyse_autodim(npunkt, punkt, nelem, elem,...
         prosent_fy = ((gbs/(10^6))/fy)*100;
         
         % Oker tverrsnittsdimensjonene inkrementelt
-        lflens = lflens + 10;
-        tflens = tflens + 1;
-        lsteg = lsteg + 12;
-        tsteg = tsteg + 1;
+        lflens = lflens + 7;
+        tflens = tflens + 0.6;
+        lsteg = lsteg + 8;
+        tsteg = tsteg + 0.5;
         ir = ir + 5;
         yr = yr + 5.3;
     end

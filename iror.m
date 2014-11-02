@@ -11,6 +11,6 @@ function svar = iror(ir, yr)
     
     % Regner ut I for tverrsnittet
     else
-        svar = (pi/64)*((yr*2)^4 - (ir*2)^4);
+        svar = (pi/4)*((yr)^4 - (ir)^4);
     end
 end

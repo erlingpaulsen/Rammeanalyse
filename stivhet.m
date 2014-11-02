@@ -12,8 +12,8 @@ function K = stivhet(nelem, elem, elementstivhet, npunkt)
     
     for i = 1 : nelem
         
-        % Fyller opp systemstivhetsmatrisa K ved hjelp av
-        % elementstivhetsmatrisa og elementstivheten
+        % Fyller opp systemstivhetsmatrisa K ved hjelp av elementstivhetsmatrisa
+        % og elementstivheten
         lok1 = elem(i, 1);
         lok2 = elem(i, 2);
         stivhet = elementstivhet(i);

@@ -1,10 +1,9 @@
-function [npunkt, punkt, autodim, nelem, elem, nlast,...
-    last, nmom, mom] = lesinput()
+function [npunkt, punkt, autodim, nelem, elem, nlast, last, nmom, mom] = lesinput()
 
 %   %i = heltall (integer)  %f : desimaltall (flyt-tall)
 
 %Apner inputfila
-filid = fopen('inputfig5.txt','r');
+filid = fopen('inputfig3.txt','r');
 
 %Leser antall knutepunkter
 npunkt = fscanf(filid,'%i',[1 1]);

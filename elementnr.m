@@ -11,8 +11,7 @@ function element = elementnr (a, b, elem, nelem)
 % elementet ikke eksisterer
 
     for i = 1 : nelem;
-        if ((a == elem(i,1) && b == elem(i,2)) ||...
-            (a == elem(i,2) && b == elem(i,1)));
+        if ((a == elem(i,1) && b == elem(i,2))||(a == elem(i,2) && b == elem(i,1)));
             element = i;
             return;
         end

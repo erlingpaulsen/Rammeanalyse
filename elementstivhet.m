@@ -1,16 +1,13 @@
-function [elemstivhet, maxY, Is] = elementstivhet(nelem,...
-                                        elem, elementlengder)
+function [elemstivhet, maxY, Is] = elementstivhet(nelem, elem, elementlengder)
 
-% elementstivhet regner ut stivheten (EI/L) til et element,
-% lengste avstand fra arealsenteret og annet arealmoment for
-% tverrsnittet
+% elementstivhet regner ut stivheten (EI/L) til et element, lengste avstand fra
+% arealsenteret og annet arealmoment for tverrsnittet
 % E: elementets E-modul
 % nelem: Antall elementer
 % elem: Matrise med elementinformasjon
 % elementlengder: Vektor med elementlengder
 %
-% svar: returnerer -1 ved ugyldig input, elementstivhet og
-% maxY ellers
+% svar: returnerer -1 ved ugyldig input, elementstivhet og maxY ellers
    
     elemstivhet = zeros(nelem, 1);
     maxY = zeros(nelem, 1);

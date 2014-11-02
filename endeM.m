@@ -1,5 +1,4 @@
-function endemoment = endeM(nelem, elem, elementstivhet,...
-    rot, fim)
+function endemoment = endeM(nelem, elem, elementstivhet, rot, fim)
 
 % endeM regner ut endemomentet ved lokal ende 1 og lokal ende 2
 % for alle elementene i konstruksjonen
@@ -20,7 +19,7 @@ function endemoment = endeM(nelem, elem, elementstivhet,...
        lokal1 = elem(i, 1);
        lokal2 = elem(i, 2);
        lokalrot = [rot(lokal1), rot(lokal2)]';
-       lokalfim = [fim(2*i - 1), fim(2*i)]';
+       lokalfim = [fim(i, 1), fim(i, 2)]';
        
        K = elementstivhet(i)*lokalK;
        

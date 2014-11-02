@@ -1,8 +1,7 @@
 function nykp = sortbykoord(kp, punkt)
 
-% sort by koort sorterer en vektor med knutepunktnummer
-% etter koordinatene til knutepunktet(bubble sort).
-%
+% sortbykoord sorterer en vektor med knutepunktnummeretter
+% koordinatene til knutepunktet(bubble sort).
 % kp: vektor med knutepunkter
 % punkt: Matrise med alle knutepunkter i konstruksjonen.
 %
@@ -13,11 +12,10 @@ function nykp = sortbykoord(kp, punkt)
     for i = (n-1) : -1 : 1;
         teller = 0;
         for j = 1 : i;
-            % Gar gjennom alle knutepunkt. Sammenligner to
-            % og to elementer og bytter plass på de dersom
-            % det forste er storst.
-            if (punkt(kp(j), 1) + punkt(kp(j), 2)...
-                    > punkt(kp(j+1), 1) + punkt(kp(j+1), 2));
+            % Gsar gjennom alle knutepunkt. Sammenligner to og to elementer og
+            % bytter plass på de dersom det forste er storst.
+            if (punkt(kp(j), 1) + punkt(kp(j), 2) >...
+                    punkt(kp(j+1), 1) + punkt(kp(j+1), 2));
                 temp = kp(j+1);
                 kp(j+1) = kp(j);
                 kp(j) = temp;
@@ -25,8 +23,8 @@ function nykp = sortbykoord(kp, punkt)
                 disp(kp);
             end
         end
-        % Dersom ingen elementer byttet plass i forrige
-        % iterasjon er listen ferdigsortert.
+        % Dersom ingen elementer byttet plass i forrige iterasjon
+        % er listen ferdigsortert.
         if teller == 0;
             nykp = kp;
             return;
