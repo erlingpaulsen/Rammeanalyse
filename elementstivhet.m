@@ -7,7 +7,7 @@ function [elemstivhet, maxY, Is] = elementstivhet(nelem, elem, elementlengder)
 % elem: Matrise med elementinformasjon
 % elementlengder: Vektor med elementlengder
 %
-% svar: returnerer -1 ved ugyldig input, elementstivhet og maxY ellers
+% svar: returnerer input, elementstivhet og maxY
    
     elemstivhet = zeros(nelem, 1);
     maxY = zeros(nelem, 1);
@@ -35,18 +35,11 @@ function [elemstivhet, maxY, Is] = elementstivhet(nelem, elem, elementlengder)
             I = iror(ir, yr);
             maxY(i) = yr;
         else
-            I = -1;
+            error('Ugyldig tverrsnittstype. Maa vaere 1 eller 2.');
         end
         
         Is(i) = I;
-        
-        % Legger elementstivheten inn i en vektor
-        % (-1 hvis ugyldig input)
-        if I == -1 
-            elemstivhet(i) = -1; 
-        else
-            elemstivhet(i) = (E*I)/L;
-        end
+        elemstivhet(i) = (E*I)/L;
     end
     
 end

@@ -7,8 +7,7 @@ function element = elementnr (a, b, elem, nelem)
 % elem: Matrise med elementinformasjon
 % nelem: Antall elementer
 %
-% element: Tilhorende element, returnerer -1 hvis
-% elementet ikke eksisterer
+% element: Returnerer tilhorende element
 
     for i = 1 : nelem;
         if ((a == elem(i,1) && b == elem(i,2))||(a == elem(i,2) && b == elem(i,1)));
@@ -17,7 +16,7 @@ function element = elementnr (a, b, elem, nelem)
         end
     end
     
-    element = -1;
+    error('Det eksisterer ikke et element mellom knutepunkt %i og %i.', a, b);
     
 end
 
