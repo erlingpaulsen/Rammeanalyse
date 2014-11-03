@@ -1,0 +1,288 @@
+--Resultat av rammeanalyse--
+
+Informasjon om konstruksjonen:
+    -Antall knutepunkt: 16
+    -Antall elementer: 20
+
+Informasjon om hvert bjelkeelement:
+
+Element 1:
+    -Lokal ende 1: 1
+    -Lokal ende 2: 5
+    -Lengde: 14.00 [m]
+    -Tversnittstype: Roerprofil
+    -Ytre last: Fordelt last
+    -Moment ende 1: -145.240 [kNm]
+    -Moment midt på element: -73.845 [kNm]
+    -Moment ende 2: 233.820 [kNm]
+    -Skjaerkraft ende 1: 67.173 [kN]
+    -Skjaerkraft ende 2: -83.327 [kN]
+    -Maksimal boeyespenning (lokal ende 2): 127.172 [MPa]
+
+Element 2:
+    -Lokal ende 1: 2
+    -Lokal ende 2: 6
+    -Lengde: 14.00 [m]
+    -Tversnittstype: Roerprofil
+    -Ytre last: Ingen ytre last
+    -Moment ende 1: 0.000 [kNm]
+    -Moment midt på element: -2.424 [kNm]
+    -Moment ende 2: -4.847 [kNm]
+    -Skjaerkraft ende 1: 0.346 [kN]
+    -Skjaerkraft ende 2: 0.346 [kN]
+    -Maksimal boeyespenning (lokal ende 2): 2.636 [MPa]
+
+Element 3:
+    -Lokal ende 1: 3
+    -Lokal ende 2: 7
+    -Lengde: 14.00 [m]
+    -Tversnittstype: Roerprofil
+    -Ytre last: Ingen ytre last
+    -Moment ende 1: 0.000 [kNm]
+    -Moment midt på element: 4.120 [kNm]
+    -Moment ende 2: 8.239 [kNm]
+    -Skjaerkraft ende 1: -0.589 [kN]
+    -Skjaerkraft ende 2: -0.589 [kN]
+    -Maksimal boeyespenning (lokal ende 2): 4.481 [MPa]
+
+Element 4:
+    -Lokal ende 1: 4
+    -Lokal ende 2: 8
+    -Lengde: 14.00 [m]
+    -Tversnittstype: Roerprofil
+    -Ytre last: Ingen ytre last
+    -Moment ende 1: -34.047 [kNm]
+    -Moment midt på element: -17.024 [kNm]
+    -Moment ende 2: -68.094 [kNm]
+    -Skjaerkraft ende 1: 7.296 [kN]
+    -Skjaerkraft ende 2: 7.296 [kN]
+    -Maksimal boeyespenning (lokal ende 2): 37.036 [MPa]
+
+Element 5:
+    -Lokal ende 1: 5
+    -Lokal ende 2: 6
+    -Lengde: 18.00 [m]
+    -Tversnittstype: Boksprofil
+    -Ytre last: Fordelt last
+    -Moment ende 1: -121.703 [kNm]
+    -Moment midt på element: -114.428 [kNm]
+    -Moment ende 2: 216.442 [kNm]
+    -Skjaerkraft ende 1: 57.737 [kN]
+    -Skjaerkraft ende 2: -68.263 [kN]
+    -Maksimal boeyespenning (lokal ende 2): 126.836 [MPa]
+
+Element 6:
+    -Lokal ende 1: 6
+    -Lokal ende 2: 7
+    -Lengde: 20.00 [m]
+    -Tversnittstype: Boksprofil
+    -Ytre last: Fordelt last
+    -Moment ende 1: -201.118 [kNm]
+    -Moment midt på element: -94.973 [kNm]
+    -Moment ende 2: 208.936 [kNm]
+    -Skjaerkraft ende 1: 59.609 [kN]
+    -Skjaerkraft ende 2: -60.391 [kN]
+    -Maksimal boeyespenning (lokal ende 2): 122.438 [MPa]
+
+Element 7:
+    -Lokal ende 1: 7
+    -Lokal ende 2: 8
+    -Lengde: 20.00 [m]
+    -Tversnittstype: Boksprofil
+    -Ytre last: Fordelt last
+    -Moment ende 1: -226.577 [kNm]
+    -Moment midt på element: -122.784 [kNm]
+    -Moment ende 2: 127.855 [kNm]
+    -Skjaerkraft ende 1: 64.936 [kN]
+    -Skjaerkraft ende 2: -55.064 [kN]
+    -Maksimal boeyespenning (lokal ende 1): 132.776 [MPa]
+
+Element 8:
+    -Lokal ende 1: 5
+    -Lokal ende 2: 9
+    -Lengde: 14.00 [m]
+    -Tversnittstype: Roerprofil
+    -Ytre last: Fordelt last
+    -Moment ende 1: -112.117 [kNm]
+    -Moment midt på element: -99.123 [kNm]
+    -Moment ende 2: 289.887 [kNm]
+    -Skjaerkraft ende 1: 71.302 [kN]
+    -Skjaerkraft ende 2: -100.198 [kN]
+    -Maksimal boeyespenning (lokal ende 2): 157.666 [MPa]
+
+Element 9:
+    -Lokal ende 1: 6
+    -Lokal ende 2: 10
+    -Lengde: 14.00 [m]
+    -Tversnittstype: Roerprofil
+    -Ytre last: Ingen ytre last
+    -Moment ende 1: -10.477 [kNm]
+    -Moment midt på element: -0.391 [kNm]
+    -Moment ende 2: -11.259 [kNm]
+    -Skjaerkraft ende 1: 1.553 [kN]
+    -Skjaerkraft ende 2: 1.553 [kN]
+    -Maksimal boeyespenning (lokal ende 2): 6.124 [MPa]
+
+Element 10:
+    -Lokal ende 1: 7
+    -Lokal ende 2: 11
+    -Lengde: 14.00 [m]
+    -Tversnittstype: Roerprofil
+    -Ytre last: Ingen ytre last
+    -Moment ende 1: 9.402 [kNm]
+    -Moment midt på element: -3.538 [kNm]
+    -Moment ende 2: 2.325 [kNm]
+    -Skjaerkraft ende 1: -0.838 [kN]
+    -Skjaerkraft ende 2: -0.838 [kN]
+    -Maksimal boeyespenning (lokal ende 1): 5.113 [MPa]
+
+Element 11:
+    -Lokal ende 1: 8
+    -Lokal ende 2: 12
+    -Lengde: 14.00 [m]
+    -Tversnittstype: Roerprofil
+    -Ytre last: Ingen ytre last
+    -Moment ende 1: -59.761 [kNm]
+    -Moment midt på element: 21.190 [kNm]
+    -Moment ende 2: -17.381 [kNm]
+    -Skjaerkraft ende 1: 5.510 [kN]
+    -Skjaerkraft ende 2: 5.510 [kN]
+    -Maksimal boeyespenning (lokal ende 1): 32.503 [MPa]
+
+Element 12:
+    -Lokal ende 1: 9
+    -Lokal ende 2: 10
+    -Lengde: 18.00 [m]
+    -Tversnittstype: Boksprofil
+    -Ytre last: Punktlast
+    -Moment ende 1: -193.601 [kNm]
+    -Moment under punktlast: -200.122 [kNm]
+    -Moment ende 2: 141.190 [kNm]
+    -Skjaerkraft ende 1: 72.912 [kN]
+    -Skjaerkraft ende 2: -27.088 [kN]
+    -Maksimal boeyespenning (under punktlast): 117.273 [MPa]
+
+Element 13:
+    -Lokal ende 1: 10
+    -Lokal ende 2: 11
+    -Lengde: 20.00 [m]
+    -Tversnittstype: Boksprofil
+    -Ytre last: Ingen ytre last
+    -Moment ende 1: -11.077 [kNm]
+    -Moment midt på element: 1.400 [kNm]
+    -Moment ende 2: -8.277 [kNm]
+    -Skjaerkraft ende 1: 0.968 [kN]
+    -Skjaerkraft ende 2: 0.968 [kN]
+    -Maksimal boeyespenning (lokal ende 1): 6.491 [MPa]
+
+Element 14:
+    -Lokal ende 1: 11
+    -Lokal ende 2: 12
+    -Lengde: 20.00 [m]
+    -Tversnittstype: Boksprofil
+    -Ytre last: Ingen ytre last
+    -Moment ende 1: 5.952 [kNm]
+    -Moment midt på element: 5.714 [kNm]
+    -Moment ende 2: 17.381 [kNm]
+    -Skjaerkraft ende 1: -1.167 [kN]
+    -Skjaerkraft ende 2: -1.167 [kN]
+    -Maksimal boeyespenning (lokal ende 2): 10.185 [MPa]
+
+Element 15:
+    -Lokal ende 1: 9
+    -Lokal ende 2: 13
+    -Lengde: 14.00 [m]
+    -Tversnittstype: Roerprofil
+    -Ytre last: Fordelt last
+    -Moment ende 1: -96.285 [kNm]
+    -Moment midt på element: -93.963 [kNm]
+    -Moment ende 2: 389.540 [kNm]
+    -Skjaerkraft ende 1: 73.553 [kN]
+    -Skjaerkraft ende 2: -118.947 [kN]
+    -Maksimal boeyespenning (lokal ende 2): 211.866 [MPa]
+
+Element 16:
+    -Lokal ende 1: 10
+    -Lokal ende 2: 14
+    -Lengde: 14.00 [m]
+    -Tversnittstype: Roerprofil
+    -Ytre last: Punktlast
+    -Moment ende 1: -118.854 [kNm]
+    -Moment under punktlast: -78.155 [kNm]
+    -Moment ende 2: -77.175 [kNm]
+    -Skjaerkraft ende 1: 28.144 [kN]
+    -Skjaerkraft ende 2: -0.140 [kN]
+    -Maksimal boeyespenning (lokal ende 1): 64.643 [MPa]
+
+Element 17:
+    -Lokal ende 1: 13
+    -Lokal ende 2: 14
+    -Lengde: 18.00 [m]
+    -Tversnittstype: Boksprofil
+    -Ytre last: Fordelt last
+    -Moment ende 1: -124.512 [kNm]
+    -Moment midt på element: -189.771 [kNm]
+    -Moment ende 2: 143.946 [kNm]
+    -Skjaerkraft ende 1: 70.920 [kN]
+    -Skjaerkraft ende 2: -73.080 [kN]
+    -Maksimal boeyespenning (midt på): 111.207 [MPa]
+
+Element 18:
+    -Lokal ende 1: 13
+    -Lokal ende 2: 15
+    -Lengde: 14.00 [m]
+    -Tversnittstype: Roerprofil
+    -Ytre last: Fordelt last
+    -Moment ende 1: -265.027 [kNm]
+    -Moment midt på element: -233.321 [kNm]
+    -Moment ende 2: 15.582 [kNm]
+    -Skjaerkraft ende 1: 122.818 [kN]
+    -Skjaerkraft ende 2: -90.682 [kN]
+    -Maksimal boeyespenning (lokal ende 1): 144.145 [MPa]
+
+Element 19:
+    -Lokal ende 1: 14
+    -Lokal ende 2: 16
+    -Lengde: 14.00 [m]
+    -Tversnittstype: Roerprofil
+    -Ytre last: Ingen ytre last
+    -Moment ende 1: -66.771 [kNm]
+    -Moment midt på element: 58.608 [kNm]
+    -Moment ende 2: 50.445 [kNm]
+    -Skjaerkraft ende 1: 1.166 [kN]
+    -Skjaerkraft ende 2: 1.166 [kN]
+    -Maksimal boeyespenning (lokal ende 1): 36.316 [MPa]
+
+Element 20:
+    -Lokal ende 1: 15
+    -Lokal ende 2: 16
+    -Lengde: 18.00 [m]
+    -Tversnittstype: Boksprofil
+    -Ytre last: Punktlast
+    -Moment ende 1: -315.582 [kNm]
+    -Moment under punktlast: 315.582 [kNm]
+    -Moment ende 2: -50.445 [kNm]
+    -Skjaerkraft ende 1: 20.335 [kN]
+    -Skjaerkraft ende 2: 20.335 [kN]
+    -Maksimal boeyespenning (lokal ende 1): 184.933 [MPa]
+
+Knutepunktsrotasjoner:
+    -1: 0.000000
+    -2: 0.000129
+    -3: -0.000220
+    -4: 0.000000
+    -5: 0.002234
+    -6: -0.000259
+    -7: 0.000440
+    -8: -0.002726
+    -9: 0.002381
+    -10: -0.000321
+    -11: -0.000127
+    -12: 0.000667
+    -13: 0.005316
+    -14: -0.004911
+    -15: -0.012105
+    -16: 0.004475
+
+Global maksimal boeyespenning (element 15): 211.866 [MPa]
+Prosent av flytspenning (320 MPa): 66.21 %

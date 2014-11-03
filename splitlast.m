@@ -1,4 +1,4 @@
-function nylast = splitlast(last, nlast, elem, punkt, npunkt)
+function nylast = splitlast(last, nlast, nelem, elem, punkt, npunkt)
 
 % splitlast endrer lastmatrisen slik at alle fordelte laster som gaar over flere
 % elemtenter vil bli splittet opp i kortere fordelte laster som gaar over
@@ -58,14 +58,13 @@ function nylast = splitlast(last, nlast, elem, punkt, npunkt)
             % og finner intensiteten ved hvert knutepunkt.
             for j = 1 : length(knutepunkter);
                 for k = j + 1 : length(knutepunkter);
-                    if (elementnr(knutepunkter(j), knutepunkter(k), elem,...
-                            length(elem(:,1))) > 0);
-                        
-                        [i1, i2] = finnintensitet(last(i,:), knutepunkter(j),...
-                            knutepunkter(k), punkt);
-                        nylast = [nylast; [1, knutepunkter(j), knutepunkter(k),...
-                            i1, i2, 0]];
-                        
+                    try
+                        elementnr(knutepunkter(j), knutepunkter(k), elem, nelem);
+
+                            [i1, i2] = finnintensitet(last(i,:), knutepunkter(j),...
+                                knutepunkter(k), punkt);
+                            nylast = [nylast; [1, knutepunkter(j), knutepunkter(k),...
+                                i1, i2, 0]];                
                     end
                 end
             end

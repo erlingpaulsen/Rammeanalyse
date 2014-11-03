@@ -3,7 +3,7 @@ function [npunkt, punkt, autodim, nelem, elem, nlast, last, nmom, mom] = lesinpu
 %   %i = heltall (integer)  %f : desimaltall (flyt-tall)
 
 %Apner inputfila
-filid = fopen('inputfig3.txt','r');
+filid = fopen('input.txt','r');
 
 %Leser antall knutepunkter
 npunkt = fscanf(filid,'%i',[1 1]);
@@ -47,7 +47,7 @@ nlast = fscanf(filid,'%i',[1 1]);
 
 % Leser lastdata
 last = fscanf(filid,'%i %i %i %f %f %f',[6 nlast])';
-last = splitlast(last, nlast, elem, punkt, npunkt);
+last = splitlast(last, nlast, nelem, elem, punkt, npunkt);
 nlast = length(last(:, 1));
 % Kolonne 1: Type last (0 er punktlast, 1 er fordelt last)
 % Kolonne 2: Lokal ende 1

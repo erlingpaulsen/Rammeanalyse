@@ -60,8 +60,6 @@ function printresultat(npunkt, punkt, nelem, elem, elementlengder, rot,...
         
         fprintf(filid, '    -Skjaerkraft ende 1: %.3f [kN]\n', s1);
         fprintf(filid, '    -Skjaerkraft ende 2: %.3f [kN]\n', s2);
-        fprintf(filid, '    -Rotasjon ende 1: %.6f\n', rot(elem(i, 1)));
-        fprintf(filid, '    -Rotasjon ende 2: %.6f\n', rot(elem(i, 2)));
         
         bs = boyespenning(i, 1)/(10^6);
         
@@ -83,6 +81,12 @@ function printresultat(npunkt, punkt, nelem, elem, elementlengder, rot,...
         
     end
     
+    fprintf(filid, 'Knutepunktsrotasjoner:\n');
+    for i = 1 : length(rot)
+       fprintf(filid, '    -%i: %.6f\n', i, rot(i));
+    end
+    fprintf(filid, '\n');
+    
     % Regner ut maksimal global boyespenning og finner hvor mange % av
     % flytspenningen denne utgjor
     gbsabs = max(abs(boyespenning(:, 1)));
@@ -97,4 +101,3 @@ function printresultat(npunkt, punkt, nelem, elem, elementlengder, rot,...
     fclose(filid);
 
 end
-

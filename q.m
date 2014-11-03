@@ -16,7 +16,7 @@ function q0 = q(nelem, elem, nlast, last, elementlengder)
 
     for i = 1:nlast
         enr = elementnr(last(i,2),last(i,3), elem, nelem);
-        last(i, 1) = lasttype;
+        lasttype = last(i, 1);
         
         % For punktlast
         if lasttype == punktlast
@@ -42,6 +42,3 @@ function q0 = q(nelem, elem, nlast, last, elementlengder)
         end
     end
 end
-        
-        
-    
